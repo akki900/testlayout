@@ -1,0 +1,214 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+// variables
+$bg-body-primary: #000;
+$bg-body-secondary: #fff;
+$txt-white: #fff;
+$relative: relative;
+$lineheight16: 16px;
+$familyRoboto: 'Roboto', sans-serif;
+$weight700: 700;
+$weight400: 400;
+
+// mixin
+@mixin flexstyle($justifyCenter){
+	display: flex;
+	justify-content: $justifyCenter;
+	align-items: center;
+}
+
+
+body{
+	background-color: $bg-body-primary;
+	font-family: $familyRoboto;
+	color: $txt-white;
+	width: 100%;
+	height: 100vh;
+	position: $relative;
+	@include flexstyle(center)
+}
+
+.panVerifyMain{
+	width: 550px;
+	height: 248px;
+	background-color: $bg-body-secondary;
+	border-radius: 5.909px;
+	box-shadow: 0px 3.93939px 3.93939px 0px rgba(0, 0, 0, 0.25);
+	padding: 24px 25px;
+	position: $relative;
+
+	@media (max-width: 575.98px){
+		width: 100%;
+		height: auto;
+		padding: 24px 16px;
+	}
+}
+
+.panHeadingBox{
+	margin-bottom: 24px;
+	.panInfo{
+		@include flexstyle(flex-start);
+	}
+
+	.panSvg svg{
+		display: inline-block;
+		width: 22.675px;
+		height: 30px;
+		margin-right: 8px;
+		@media (max-width: 575.98px){
+			display: none;
+		}
+	}
+
+	.panTitle h4{
+		color: #181818;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: $weight700;
+		line-height: 20.8px;
+		opacity: 0.9;
+		margin-bottom: 4px;
+	}
+
+	.panTitle p{
+		color: #747474;
+		font-size: 12px;
+		font-style: normal;
+		font-weight: $weight400;
+		line-height: $lineheight16;
+	}
+
+	.panTitle .mobileViewSvg .panSvg .mobileS{
+		display: none;
+		@media (max-width: 575.98px){
+			display: block;
+		}
+	}
+
+	.panClose{
+		position: absolute;
+		top: 16px;
+		right: 16px;
+		display: inline-block;
+		width: 14px;
+		height: 14px;
+		cursor: pointer;
+  }
+}
+
+.panInfoMain{
+	position: $relative;
+	@include flexstyle(space-between);
+	width: 470px;
+
+	@media (max-width: 575.98px){
+		width: auto;
+		flex-direction: column;
+		align-items: stretch;
+		text-align: center;
+	}
+
+	.panImageBox img{
+		border-radius: 6.627px;
+		background: lightgray 50% / cover no-repeat;
+
+		@media (max-width: 575.98px){
+			margin-bottom: 16px;
+		}
+	}
+	.formBox{
+		position: $relative;
+		.form-group {
+			margin-bottom: 12px;
+			position: $relative;
+			height: 70px;
+		}
+		input {
+			position: $relative;
+			display: block;
+			width: 100%;
+			border: 1px solid rgba(0,0,0,.37);
+			border-radius: 4px;
+			background-color: transparent;
+			margin: 0px auto;
+			padding: 6px 4px 4px 14px;
+			height: 40px;
+			outline: none !important;
+			font-size: 14px;
+			font-weight: $weight400;
+			color: rgba(0,0,0,0.85);
+			transition: all .2s ease-in-out;
+			margin-bottom: 7px;
+		}
+		label {
+			position: absolute;
+			top: 15px;
+			left: 12px;
+			line-height: normal;
+			font-size: 12px;
+			font-weight: $weight400;
+			color: #ACACAC;
+			transition: all .15s ease-in-out;
+		}
+		input:hover, input:focus {
+			border: 1px solid #4091F0;
+		}
+		input:valid + label, input:focus + label {
+			top: -6px;
+			color: #4091F0;
+			font-weight: bold;
+			background-color: #fff;
+			padding: 0 4px;
+		}
+		span{
+			float: right;
+			color: #ACACAC;
+			text-align: right;
+			font-size: 12px;
+			font-style: normal;
+			font-weight: $weight400;
+			line-height: $lineheight16; /* 133.333% */
+		}
+		button{
+			width: 235px;
+			height: 44px;
+			padding: 0px 16px;
+			border-radius: 4px;
+			background: #8AA838;
+			border: 0;
+			color: #FFF;
+			text-align: center;
+			font-size: 14px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			text-transform: uppercase;
+			cursor: pointer;
+
+			@media (max-width: 575.98px){
+				width: 100%;
+			}
+		}
+
+		button.disable{
+			background-color: #CCC;
+		}
+	}
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) and (orientation: landscape) {
+	.panVerifyMain{
+		height: 224px;
+		overflow: scroll;
+	}
+}
+
+@media (max-width: 575.98px){
+	.panTitle .mobileViewSvg{
+		display: flex;
+	}
+}
